@@ -12,12 +12,13 @@ public class ClarityTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int row = 8; row > 0; row--)
+        for (int row = 1; row < 11; row++)
         {
             for (int letter = 0; letter < 6; letter++)
             {
-                var newLetter = Instantiate(ePrefab, new Vector3(letter * 0.03f, 1.0f + row *0.03f, 0), Quaternion.identity);
-                newLetter.transform.localScale = Vector3.one * letterMultiplier * 1/row;//(row * 0.01f + 0.02f);
+                var newLetter = Instantiate(ePrefab, new Vector3(letter * 0.03f, 1.0f - row *0.03f, 0), Quaternion.identity);
+                var visionRating = 0.1f * row;
+                newLetter.transform.localScale = Vector3.one * letterMultiplier * 0.1f/visionRating;//(row * 0.01f + 0.02f);
             }
         }
     }
