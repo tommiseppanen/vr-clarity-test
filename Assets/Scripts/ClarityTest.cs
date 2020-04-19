@@ -60,6 +60,9 @@ public class ClarityTest : MonoBehaviour
             mainCamera.transform.position = new Vector3(0, startHeight/2.0f, -distance);
         }
 
-        
+        if (Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            mainCamera.transform.position = new Vector3(0, startHeight / 2.0f, -distance/3.0f);
+        }
     }
 }
