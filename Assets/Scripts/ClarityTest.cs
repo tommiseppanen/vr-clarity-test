@@ -9,7 +9,7 @@ public class ClarityTest : MonoBehaviour
     [SerializeField]
     private GameObject ratingValuePrefab;
     [SerializeField]
-    private GameObject mainCamera;
+    private GameObject cameraRig;
 
     private const float standardVision = 5.0f/60.0f;
     private const float distance = 6.0f;
@@ -57,12 +57,17 @@ public class ClarityTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            mainCamera.transform.position = new Vector3(0, startHeight/2.0f, -distance);
+            cameraRig.transform.position = new Vector3(0, startHeight*0.75f, -distance);
         }
 
         if (Input.GetKeyDown(KeyCode.LeftAlt))
         {
-            mainCamera.transform.position = new Vector3(0, startHeight / 2.0f, -distance/3.0f);
+            cameraRig.transform.position = new Vector3(0, startHeight*0.75f, -distance/3.0f);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            UnityEngine.XR.InputTracking.Recenter();
         }
     }
 }
