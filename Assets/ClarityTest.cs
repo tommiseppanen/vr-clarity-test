@@ -16,7 +16,7 @@ public class ClarityTest : MonoBehaviour
         {
             for (int letter = 0; letter < 6; letter++)
             {
-                var newLetter = Instantiate(ePrefab, new Vector3(letter * 0.03f, 1.0f - row *0.03f, 0), Quaternion.identity);
+                var newLetter = Instantiate(ePrefab, new Vector3(letter * 0.03f, 1.0f - row *0.03f, 0), Quaternion.Euler(0, 0, Random.Range(0, 4)*90));
                 var visionRating = 0.1f * row;
                 newLetter.transform.localScale = Vector3.one * letterMultiplier * 0.1f/visionRating;//(row * 0.01f + 0.02f);
             }
