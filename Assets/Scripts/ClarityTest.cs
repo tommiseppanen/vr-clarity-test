@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ClarityTest : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class ClarityTest : MonoBehaviour
     private const float standardVision = 5.0f/60.0f;
     private const float distance = 6.0f;
     private const float startHeight = 2.0f;
-    private const float horizontalOffset = -0.5f;
+    private const float horizontalOffset = -0.3f;
 
     // Start is called before the first frame update
     void Start()
@@ -43,13 +44,13 @@ public class ClarityTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Plus))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             UnityEngine.XR.XRSettings.eyeTextureResolutionScale += 0.25f;
             Debug.Log(UnityEngine.XR.XRSettings.eyeTextureResolutionScale);
         }
 
-        if (Input.GetKeyDown(KeyCode.Minus))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             UnityEngine.XR.XRSettings.eyeTextureResolutionScale -= 0.25f;
             Debug.Log(UnityEngine.XR.XRSettings.eyeTextureResolutionScale);
@@ -68,6 +69,11 @@ public class ClarityTest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             UnityEngine.XR.InputTracking.Recenter();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(0);
         }
     }
 }
