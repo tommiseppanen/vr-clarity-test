@@ -58,12 +58,12 @@ public class ClarityTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            cameraRig.transform.position = new Vector3(cameraRig.transform.position.x, cameraRig.transform.position.y, -distance);
+            MoveCameraRig(0, 0, distance / 3.0f);
         }
 
         if (Input.GetKeyDown(KeyCode.LeftAlt))
         {
-            cameraRig.transform.position = new Vector3(cameraRig.transform.position.x, cameraRig.transform.position.y, -distance/3.0f);
+            MoveCameraRig(0, 0, -distance / 3.0f);
         }
 
         if (Input.GetKeyDown(KeyCode.Return))
@@ -78,22 +78,37 @@ public class ClarityTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            cameraRig.transform.position = new Vector3(cameraRig.transform.position.x, cameraRig.transform.position.y - 0.1f, cameraRig.transform.position.z);
+            MoveCameraRig(0, -0.1f);
         }
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            cameraRig.transform.position = new Vector3(cameraRig.transform.position.x, cameraRig.transform.position.y + 0.1f, cameraRig.transform.position.z);
+            MoveCameraRig(0, 0.1f);
         }
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            cameraRig.transform.position = new Vector3(cameraRig.transform.position.x - 0.1f, cameraRig.transform.position.y, cameraRig.transform.position.z);
+            MoveCameraRig(-0.1f);
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            cameraRig.transform.position = new Vector3(cameraRig.transform.position.x + 0.1f, cameraRig.transform.position.y, cameraRig.transform.position.z);
+            MoveCameraRig(0.1f);
         }
+
+        if (Input.GetKeyDown(KeyCode.Home))
+        {
+            MoveCameraRig(0,0, 0.1f);
+        }
+
+        if (Input.GetKeyDown(KeyCode.End))
+        {
+            MoveCameraRig(0,0, -0.1f);
+        }
+    }
+
+    private void MoveCameraRig(float x, float y = 0.0f, float z = 0.0f)
+    {
+        cameraRig.transform.position = new Vector3(cameraRig.transform.position.x + x, cameraRig.transform.position.y + y, cameraRig.transform.position.z + z);
     }
 }
